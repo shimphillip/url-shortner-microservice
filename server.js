@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const app = require('./app')
 
 // Environment variables
-const { MONGO_URI, PORT = 4000 } = process.env
+const { MONGO_URI, PORT = 5000 } = process.env
 
 // connect to database then start the Express server
 mongoose

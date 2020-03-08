@@ -7,7 +7,6 @@
 
 const express = require('express')
 const morgan = require('morgan')
-
 const router = require('./routes')
 
 const app = express()
@@ -16,10 +15,11 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
 }
 
-app.use('/api/shorturl', router)
-
 app.get('/', (req, res) => {
   res.send('Homepage')
 })
+
+app.use(express.json())
+app.use('/api/shorturl', router)
 
 module.exports = app
