@@ -1,0 +1,74 @@
+{
+  "name": "url-shortner-microservice",
+  "version": "1.0.0",
+  "description": "Freecodecamp Project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "NODE_ENV=development nodemon server.js",
+    "lint": "./node_modules/.bin/eslint --ext .js --fix",
+    "test": "jest",
+    "test:dev": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shimphillip/url-shortner-microservice.git"
+  },
+  "author": "Phillip Shim",
+  "license": "GNU GENERAL PUBLIC LICENSE",
+  "bugs": {
+    "url": "https://github.com/shimphillip/url-shortner-microservice/issues"
+  },
+  "homepage": "https://github.com/shimphillip/url-shortner-microservice#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "http-errors": "^1.7.3",
+    "mongoose": "^5.9.3",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.7.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.7",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
+    "supertest": "^4.0.2"
+  },
+  "lint-staged": {
+    "*js": [
+      "npm run lint",
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "engines": {
+    "node": "13.x"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "RESTful",
+    "rest-api",
+    "mongodb",
+    "micro-service",
+    "url-shortner"
+  ]
+}
