@@ -24,6 +24,7 @@ module.exports = {
   },
 
   getShortUrl: (req, res) => {
+    // const { shortId } = req.params
     console.log('run')
     res.json({
       message: 'hello'
