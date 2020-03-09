@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-console */
 
 const shortid = require('shortid')
@@ -23,11 +24,25 @@ module.exports = {
     }
   },
 
-  getShortUrl: (req, res) => {
-    // const { shortId } = req.params
-    console.log('run')
-    res.json({
-      message: 'hello'
-    })
+  getShortUrl: async (req, res) => {
+    try {
+      const { short_url } = req.params
+      const doc = await Url.findOne({
+        short_url
+      })
+
+      if (!doc) {
+        throw new Error(`Shorturl ${short_url} is not found`)
+      }
+
+      const { original_url } = doc
+
+      res.redirect(302, original_url)
+    } catch (error) {
+      // bad request
+      res.status(400).json({
+        msg: error.message
+      })
+    }
   }
 }

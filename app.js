@@ -20,6 +20,6 @@ app.get('/', (req, res) => {
 })
 
 app.use(express.json())
-app.use('/api/shorturl', router)
+app.use(router)
 
 module.exports = app
