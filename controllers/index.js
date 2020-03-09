@@ -2,14 +2,19 @@
 /* eslint-disable no-console */
 
 const shortid = require('shortid')
+const validUrl = require('valid-url')
 const Url = require('../Models/Url')
 
 module.exports = {
   createShortUrl: async (req, res) => {
     try {
       const { originalUrl } = req.body
-      // find one first
 
+      if (!validUrl.isUri(originalUrl)) {
+        throw new Error(`The given url ${originalUrl} is not a valid uri`)
+      }
+
+      // create a shortid
       const document = await Url.create({
         original_url: originalUrl,
         short_url: shortid.generate()
