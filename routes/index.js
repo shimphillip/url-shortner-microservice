@@ -1,9 +1,9 @@
-const express = require('express')
-const controller = require('../controllers')
+const { Router } = require('express')
+const { getShortUrl, createShortUrl } = require('../controllers')
 
-const router = express.Router()
+const router = Router()
 
-router.get('/api/shorturl/:short_url', controller.getShortUrl)
-router.post('/api/shorturl/new', controller.createShortUrl)
+router.get('/api/shorturl/:short_url', getShortUrl)
+router.post('/api/shorturl/new', createShortUrl)
 
 module.exports = router
