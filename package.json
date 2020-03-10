@@ -8,7 +8,7 @@
     "dev": "NODE_ENV=development nodemon server.js",
     "lint": "./node_modules/.bin/eslint --ext .js --fix",
     "test": "jest",
-    "test:dev": "jest --watchAll"
+    "dev:test": "jest --watchAll"
   },
   "repository": {
     "type": "git",
