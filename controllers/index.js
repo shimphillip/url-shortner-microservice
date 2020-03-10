@@ -22,7 +22,6 @@ module.exports = {
 
       res.status(200).json(document)
     } catch (error) {
-      console.error(`error creating new short url ${error}`)
       res.status(400).json({
         error: 'duplicate url already exists'
       })
